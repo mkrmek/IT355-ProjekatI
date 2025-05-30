@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Unos profesora</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<h2 th:text="${profesor.id != 0} ? 'Izmeni profesora' : 'Dodaj novog profesora'"></h2>
+<form th:action="${profesor.id == 0} ? @{/profesori/dodaj} : @{/profesori/izmeni}" th:object="${profesor}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Ime: <input type="text" th:field="*{ime}" required /></label><br/>
+    <label>Prezime: <input type="text" th:field="*{prezime}" required /></label><br/>
+    <label>Zvanje: <input type="text" th:field="*{zvanje}" required /></label><br/>
+    <button type="submit">Sačuvaj</button>
+</form>
+<br/>
+<a href="/profesori">⬅️ Nazad na listu profesora</a>
+</body>
+</html>

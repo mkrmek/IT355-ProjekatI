@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Početna strana</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 20px 0;
+        }
+
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 20px;
+            background-color: #e3e3e3;
+            color: #555;
+            font-size: 14px;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🎓 Sistem za upravljanje studentima</h1>
+
+<ul>
+    <li><a href="/studenti">👨‍🎓 Studenti</a></li>
+    <li><a href="/profesori">👨‍🏫 Profesori</a></li>
+    <li><a href="/predmeti">📚 Predmeti</a></li>
+    <li><a href="/ocene">📝 Ocene</a></li>
+    <li><a href="/prijave">🗂️ Prijave ispita</a></li>
+</ul>
+
+<footer>
+    &copy; 2025. Fakultet Metropolitan- Web aplikacija napravljena u sklopu predmeta IT355.
+</footer>
+
+</body>
+</html>
+

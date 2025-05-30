@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Unos predmeta</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<h2 th:text="${predmet.id != 0} ? 'Izmeni predmet' : 'Dodaj novi predmet'"></h2>
+<form th:action="${predmet.id == 0} ? @{/predmeti/dodaj} : @{/predmeti/izmeni}" th:object="${predmet}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Naziv: <input type="text" th:field="*{naziv}" required /></label><br/>
+    <label>ESPB: <input type="number" th:field="*{espb}" required /></label><br/>
+    <label>Profesor: <input type="text" th:field="*{profesor}" required /></label><br/>
+    <button type="submit">💾 Sačuvaj</button>
+</form>
+<br/>
+<a href="/predmeti">⬅️ Nazad na listu predmeta</a>
+</body>
+</html>

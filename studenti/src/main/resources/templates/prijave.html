@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista prijava ispita</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<h1>Lista prijava ispita</h1>
+<a href="/prijave/dodaj">➕ Dodaj prijavu</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Student</th>
+        <th>Predmet</th>
+        <th>Datum prijave</th>
+        <th>Akcije</th>
+    </tr>
+    <tr th:each="prijava : ${prijave}">
+        <td th:text="${prijava.id}"></td>
+        <td th:text="${prijava.student}"></td>
+        <td th:text="${prijava.predmet}"></td>
+        <td th:text="${prijava.datumPrijave}"></td>
+        <td>
+            <a th:href="@{'/prijave/izmeni/' + ${prijava.id}}">Izmeni</a>
+            <a th:href="@{'/prijave/obrisi/' + ${prijava.id}}">Obriši</a>
+        </td>
+    </tr>
+</table>
+<a href="/studenti">⬅️ Nazad na studente</a>
+</body>
+</html>

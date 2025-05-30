@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista ocena</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<h1>Lista ocena</h1>
+<a href="/ocene/dodaj">➕ Dodaj ocenu</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Student</th>
+        <th>Predmet</th>
+        <th>Ocena</th>
+        <th>Datum</th>
+        <th>Akcije</th>
+    </tr>
+    <tr th:each="ocena : ${ocene}">
+        <td th:text="${ocena.id}"></td>
+        <td th:text="${ocena.student}"></td>
+        <td th:text="${ocena.predmet}"></td>
+        <td th:text="${ocena.ocena}"></td>
+        <td th:text="${ocena.datum}"></td>
+        <td>
+            <a th:href="@{'/ocene/izmeni/' + ${ocena.id}}">Izmeni</a>
+            <a th:href="@{'/ocene/obrisi/' + ${ocena.id}}">Obriši</a>
+        </td>
+    </tr>
+</table>
+<a href="/studenti">⬅️ Nazad na studente</a>
+</body>
+</html>

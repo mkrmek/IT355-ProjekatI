@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Unos studenta</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<h2 th:text="${student.id != 0} ? 'Izmeni studenta' : 'Dodaj novog studenta'"></h2>
+<form th:action="${student.id == 0} ? @{/studenti/dodaj} : @{/studenti/izmeni}" th:object="${student}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Ime: <input type="text" th:field="*{ime}" required /></label><br/>
+    <label>Prezime: <input type="text" th:field="*{prezime}" required /></label><br/>
+    <label>Broj indeksa: <input type="text" th:field="*{brojIndeksa}" required /></label><br/>
+    <label>Smer: <input type="text" th:field="*{smer}" required /></label><br/>
+    <button type="submit">💾 Sačuvaj</button>
+</form>
+<br/>
+<a href="/studenti">⬅️ Nazad na listu</a>
+</body>
+</html>

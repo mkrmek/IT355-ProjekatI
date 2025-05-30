@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Unos ocene</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<h2 th:text="${ocena.id != 0} ? 'Izmeni ocenu' : 'Dodaj novu ocenu'"></h2>
+<form th:action="${ocena.id == 0} ? @{/ocene/dodaj} : @{/ocene/izmeni}" th:object="${ocena}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Student: <input type="text" th:field="*{student}" required /></label><br/>
+    <label>Predmet: <input type="text" th:field="*{predmet}" required /></label><br/>
+    <label>Ocena: <input type="number" th:field="*{ocena}" required /></label><br/>
+    <label>Datum: <input type="date" th:field="*{datum}" required /></label><br/>
+    <button type="submit">Sačuvaj</button>
+</form>
+<br/>
+<a href="/ocene">⬅️ Nazad na listu ocena</a>
+</body>
+</html>

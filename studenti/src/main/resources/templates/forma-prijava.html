@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Unos prijave ispita</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<h2 th:text="${prijava.id != 0} ? 'Izmeni prijavu' : 'Dodaj novu prijavu'"></h2>
+<form th:action="${prijava.id == 0} ? @{/prijave/dodaj} : @{/prijave/izmeni}" th:object="${prijava}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Student: <input type="text" th:field="*{student}" required /></label><br/>
+    <label>Predmet: <input type="text" th:field="*{predmet}" required /></label><br/>
+    <label>Datum prijave: <input type="date" th:field="*{datumPrijave}" required /></label><br/>
+    <button type="submit">Sačuvaj</button>
+</form>
+<br/>
+<a href="/prijave">⬅️ Nazad na listu prijava</a>
+</body>
+</html>

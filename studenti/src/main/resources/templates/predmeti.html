@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista predmeta</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<h1>Lista predmeta</h1>
+<a href="/predmeti/dodaj">➕ Dodaj predmet</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Naziv</th>
+        <th>ESPB</th>
+        <th>Profesor</th>
+        <th>Akcije</th>
+    </tr>
+    <tr th:each="predmet : ${predmeti}">
+        <td th:text="${predmet.id}"></td>
+        <td th:text="${predmet.naziv}"></td>
+        <td th:text="${predmet.espb}"></td>
+        <td th:text="${predmet.profesor}"></td>
+        <td>
+            <a th:href="@{'/predmeti/izmeni/' + ${predmet.id}}">✏️ Izmeni</a>
+            <a th:href="@{'/predmeti/obrisi/' + ${predmet.id}}">🗑️ Obriši</a>
+        </td>
+    </tr>
+</table>
+<a href="/studenti">⬅️ Nazad na studente</a>
+</body>
+</html>
